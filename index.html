@@ -2,11 +2,193 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="refresh" content="0;url=outcome/index.html" />
-  <title>国家安全 · 打开网站</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>国家安全 · 你我同筑</title>
+  <meta name="description" content="新时代总体国家安全观知识学习与互动答题" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
-<body>
-  <script>location.replace("outcome/index.html");</script>
-  <p>如果未自动跳转，请<a href="outcome/index.html">点击这里打开网站</a>。</p>
+<body data-view="main">
+
+  <!-- ================= 页面一：主页面（静态展示） ================= -->
+  <section id="page-main" class="view view-main" aria-label="主页面">
+    <div class="main-bg"></div>
+    <div class="main-shade"></div>
+    <!-- 中央按钮（覆盖在设计文字之上） -->
+    <div class="main-cta-wrap">
+      <button id="btn-start" class="cta-btn" type="button" aria-label="开始学习">
+        <span class="cta-main">- 开启学习之旅 -</span>
+        <span class="cta-sub">点击进入 · 开始学习</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ================= 页面二：interact（博物馆展厅 + 下滑文字） ================= -->
+  <section id="page-interact" class="view view-interact" aria-label="知识展厅">
+    <div class="interact-scroll" id="interact-scroll">
+      <!-- 展厅主视觉（未下滑可点击进入） -->
+      <div class="interact-hero" id="interact-hero">
+        <div class="hero-bg"></div>
+        <div class="hero-shade"></div>
+        <div class="hero-tag">
+          <span class="hero-tag-title">新时代总体国家安全观</span>
+          <span class="hero-tag-sub">NATIONAL SECURITY</span>
+        </div>
+        <div class="hero-hint" id="hero-hint">
+          <span class="hero-hint-main">点击画面任意处进入</span>
+          <span class="hero-hint-sub">下滑可查看文字讲解</span>
+        </div>
+      </div>
+
+      <!-- 下滑文字展示区 -->
+      <div class="textinfo">
+        <header class="textinfo-head">
+          <p class="textinfo-eyebrow">国家安全 · 你我同筑</p>
+          <h2>读懂总体国家安全观</h2>
+          <p class="textinfo-lead">从价值意义、道路体系到重点领域，构筑维护国家安全的钢铁长城。</p>
+        </header>
+        <div id="showtext-root"></div>
+        <div class="textinfo-end">
+          <p>国家安全 · 人人有责</p>
+        </div>
+      </div>
+
+      <!-- 下滑到底：南京行政区划 3D 互动地图（红色资源） -->
+      <div class="njmap-section" id="njmap-section">
+        <header class="njmap-head">
+          <p class="njmap-eyebrow">金陵红色地图 · 南京</p>
+          <h2 class="njmap-title">红色资源 · 行政区划互动图</h2>
+          <p class="njmap-lead">点击任一区域，查看当前区域国家安全及红色教育资源</p>
+        </header>
+        <div class="njmap-stage" id="njmap-stage">
+          <canvas id="njmap-canvas" class="njmap-canvas" aria-label="南京市行政区划图"></canvas>
+          <div class="njmap-bubble" id="njmap-bubble" hidden>
+            <button class="njmap-bubble-close" id="njmap-bubble-close" type="button" aria-label="关闭">×</button>
+            <div class="njmap-bubble-head">
+              <span class="njmap-bubble-icon">★</span>
+              <h3 class="njmap-bubble-title" id="njmap-bubble-title"></h3>
+              <span class="njmap-bubble-tag">红色资源</span>
+            </div>
+            <div class="njmap-bubble-body" id="njmap-bubble-body"></div>
+          </div>
+        </div>
+      </div>
+      <section class="survey-report-section" id="survey-report-section" data-mode="gallery" aria-labelledby="survey-report-title">
+        <header class="survey-report-head">
+          <p class="survey-report-eyebrow">国家安全教育实践 · 调研成果</p>
+          <h2 class="survey-report-title" id="survey-report-title">实践调研报告</h2>
+          <p class="survey-report-lead">点击任一卡片，查看完整调研报告</p>
+        </header>
+        <div class="survey-gallery" id="survey-gallery">
+          <button class="survey-card" type="button" data-report="meiyuan" aria-label="查看中共代表团梅园新村纪念馆调研报告">
+            <span class="survey-book">
+              <span class="survey-book-shadow"></span>
+              <span class="survey-book-back"></span>
+              <img class="survey-cover" src="assets/survey/meiyuanxincun.jpg" alt="中共代表团梅园新村纪念馆调研报告" draggable="false" />
+              <span class="survey-cover-shine"></span>
+              <span class="survey-card-meta">
+                <strong>中共代表团梅园新村纪念馆</strong>
+                <small>2026.9.10 · Qian.</small>
+              </span>
+              <span class="survey-card-open">查看报告</span>
+            </span>
+          </button>
+          <button class="survey-card" type="button" data-report="massacre" aria-label="查看侵华日军南京大屠杀遇难同胞纪念馆调研报告">
+            <span class="survey-book">
+              <span class="survey-book-shadow"></span>
+              <span class="survey-book-back"></span>
+              <img class="survey-cover" src="assets/survey/massacre-memorial.png" alt="侵华日军南京大屠杀遇难同胞纪念馆调研报告" draggable="false" />
+              <span class="survey-cover-shine"></span>
+              <span class="survey-card-meta">
+                <strong>侵华日军南京大屠杀遇难同胞纪念馆</strong>
+                <small>2026.9.10 · Zhao.</small>
+              </span>
+              <span class="survey-card-open">查看报告</span>
+            </span>
+          </button>
+        </div>
+        <div class="survey-reader" id="survey-reader" hidden aria-hidden="true">
+          <div class="survey-reader-backdrop" data-survey-close></div>
+          <section class="survey-reader-dialog" role="dialog" aria-modal="true" aria-labelledby="survey-reader-title">
+            <button class="survey-reader-close" id="survey-reader-close" type="button" aria-label="关闭调研报告">×</button>
+            <header class="survey-reader-head">
+              <p class="survey-reader-kicker">国家安全教育实践 · 调研报告</p>
+              <h3 class="survey-reader-title" id="survey-reader-title"></h3>
+              <p class="survey-reader-date" id="survey-reader-date"></p>
+            </header>
+            <div class="survey-reader-scroll" id="survey-reader-scroll">
+              <img class="survey-reader-image" id="survey-reader-image" src="" alt="" draggable="false" />
+            </div>
+          </section>
+        </div>
+      </section>
+
+    </div>
+  </section>
+
+  <!-- ================= 页面三：scroll（横向一排卡片车 + 互动答题） ================= -->
+  <section id="page-scroll" class="view view-scroll" aria-label="知识问答">
+    <button id="back-to-interact" class="back-to-interact" type="button" aria-label="返回知识展厅">‹ 返回展厅</button>
+    <header class="car-head">
+      <h1 class="car-title">国家安全 · 知识问答</h1>
+      <div class="scroll-progress">
+        <span class="scroll-progress-label">守护之卡已点亮</span>
+        <span class="scroll-progress-num"><b id="solved-count">0</b> / <span id="total-count">21</span></span>
+      </div>
+      <p class="car-sub">左右滑动浏览卡片 · 点击卡片开始答题</p>
+    </header>
+    <div class="car-wrap" id="car-wrap">
+      <div class="car-track" id="car-track"></div>
+    </div>
+    <button class="car-nav car-nav-prev" id="car-prev" type="button" aria-label="上一张">‹</button>
+    <button class="car-nav car-nav-next" id="car-next" type="button" aria-label="下一张">›</button>
+  </section>
+
+  <!-- ================= 答题弹层（背景虚化 + 居中答题小卡片） ================= -->
+  <div id="quiz-overlay" class="quiz-overlay" hidden aria-hidden="true">
+    <div class="quiz-backdrop"></div>
+    <div class="quiz-card" id="quiz-card" role="dialog" aria-modal="true">
+      <div class="quiz-top">
+        <span class="quiz-cat" id="quiz-cat"></span>
+        <span class="quiz-idx" id="quiz-idx"></span>
+      </div>
+      <div class="quiz-q" id="quiz-q"></div>
+      <div class="quiz-opts" id="quiz-opts"></div>
+      <div class="quiz-explain" id="quiz-explain" hidden></div>
+      <div class="quiz-actions" id="quiz-actions" hidden></div>
+      <div class="quiz-detail" id="quiz-detail" hidden>
+        <span class="quiz-detail-tag">安全 · 深度解读</span>
+        <h3 class="quiz-detail-title" id="quiz-detail-title"></h3>
+        <p class="quiz-detail-text" id="quiz-detail-text"></p>
+        <p class="quiz-detail-hint">— 点击任意处收起 —</p>
+      </div>
+      <button class="quiz-close" id="quiz-close" type="button" aria-label="关闭">×</button>
+    </div>
+  </div>
+
+  <!-- ================= 回答正确浮层 ================= -->
+  <div id="correct-toast" class="correct-toast" hidden>
+    <span class="correct-toast-mark">✓</span>
+    <span class="correct-toast-text">- 回答正确 -</span>
+  </div>
+
+  <!-- ================= 结算界面（全部点亮后进入） ================= -->
+  <div id="final-overlay" class="final-overlay" hidden aria-hidden="true">
+    <div class="final-bg"></div>
+    <div class="final-inner">
+      <p class="final-eyebrow">国家安全 · 你我同筑</p>
+      <h2 class="final-title">国安有我 · 山河无恙</h2>
+      <p class="final-sub" id="final-sub">21 个领域守护之卡已全部点亮</p>
+      <button id="final-restart" class="final-restart" type="button">重新开始学习</button>
+    </div>
+  </div>
+
+  <!-- 上下分屏拉开动效使用的克隆承载层 -->
+  <div id="curtain" class="curtain" aria-hidden="true"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/map-data.js"></script>
+  <script src="js/map-districts.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/survey.js"></script>
 </body>
 </html>
